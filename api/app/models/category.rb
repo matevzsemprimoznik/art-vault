@@ -1,10 +1,6 @@
 class Category < ApplicationRecord
-    has_many :item_categories
-    has_many :items, through: :item_categories
-
-    validates :name, presence: true
-    validates :name, uniqueness: true
-    validates :name , length: { maximum: 20 }
-    validates :name , length: { minimum: 3 }
+    has_many :category_items
+    has_many :items, through: :category_items
+    validates :name, presence: true, length: { minimum: 3, maximum: 20 }, uniqueness: true
     validates :description, presence: true
   end

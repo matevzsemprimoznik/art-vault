@@ -1,9 +1,7 @@
 class Item < ApplicationRecord
-    has_many :item_categories
-    has_many :categories, through: :item_categories
-
-    validates :name, presence: true
-    validates :name , length: { maximum: 20 }
-    validates :name , length: { minimum: 3 }
+    has_many :category_items
+    has_many :categories, through: :category_items
+    validates :name, presence: true, length: { minimum: 3, maximum: 20 }
     validates :description, presence: true
   end
+  
