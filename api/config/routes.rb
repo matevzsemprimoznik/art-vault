@@ -5,4 +5,5 @@ Rails.application.routes.draw do
       get :get_by_categories
     end
   end
+  resources :auctions
 end
