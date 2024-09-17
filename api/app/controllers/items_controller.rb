@@ -33,16 +33,16 @@ class ItemsController < ApplicationController
       head :no_content
     end
 
-    def show_by_categories
-        def by_categories
-            if params[:category_ids].present?
-              category_ids = params[:category_ids].map(&:to_i)
-              @items = Item.joins(:categories).where(categories: { id: category_ids }).distinct
-              render json: @items
-            else
-              render json: { error: 'category_ids parameter is missing' }, status: :bad_request
-            end
-          end
+    def get_by_categories
+        if params[:category_ids].present?
+            category_ids = params[:category_ids].map(&:to_i)
+            puts category_ids
+            @items = Item.joins(:categories).where(categories: { id: category_ids }).distinct
+            render json: @items
+        else
+            render json: { error: 'category_ids parameter is missing' }, status: :bad_request
+        end
+          
     end
   
     private
