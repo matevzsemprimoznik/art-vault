@@ -1,6 +1,7 @@
 class Auction < ApplicationRecord
     has_many :auction_items
     has_many :items, through: :auction_items
+    has_many: :bids
   
     validates :name, presence: true, length: { minimum: 3, maximum: 20 }
     validates :description, presence: true

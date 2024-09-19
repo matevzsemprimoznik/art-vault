@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 9.99
+  date: 2024-09-17 18:54:55
+  auction: one
+
+two:
+  price: 9.99
+  date: 2024-09-17 18:54:55
+  auction: two
