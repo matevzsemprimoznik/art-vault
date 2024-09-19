@@ -1,5 +1,6 @@
 class AuctionsController < ApplicationController
     before_action :set_auction, only: %i[show update destroy]
+    before_action :authorize
   
     def index
       @auctions = Auction.all
