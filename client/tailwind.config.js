@@ -2,8 +2,13 @@
 module.exports = {
   content: ['./app/**/*.{gjs,gts,hbs,html,js,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        tint: '#e67255',
+        neutral: '#f4f5f7',
+        'neutral-dark': '#000000',
+      },
+    },
   },
   plugins: [],
-  purge: ['app/**/*.hbs'],
 };
