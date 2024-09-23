@@ -1,3 +1,9 @@
 {{page-title "Client"}}
 
-{{outlet}}
+<div class="flex flex-col min-h-[100vh]">
+  <Navbar/>
+  <div class="flex-1">
+    {{outlet}}
+  </div>
+  <Footer/>
+</div>
