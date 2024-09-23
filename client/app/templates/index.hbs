@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col items-center">
+<div class="min-h-screen flex flex-col items-center w-full">
   <Navbar/>
 
   <section class="text-center grid grid-cols-2 pt-28 pb-36 w-full bg-neutral ">
@@ -18,10 +18,60 @@
     </div>
   </section>
 
-  <section class="bg-white">
-    <h2>Our services</h2>
+  <section class="bg-white pt-14 pb-10">
+    <h2 class="text-3xl font-semibold text-center mb-4">Our Services</h2>
 
+    <div class="feature-carousel-wrapper">
+      <div class="feature-carousel p-10">
+        <FeatureCard
+          @image="feature-bidding.png"
+          @title="Bidding"
+          @description="Actively participate in exciting auctions by placing your bids on a variety of unique items. Engage with other bidders and experience the thrill of competition as you strive to secure your desired pieces"
+        />
+
+        <FeatureCard
+          @image="feature-selling.png"
+          @title="Selling"
+          @description="Sell your artwork effortlessly and quickly by creating your own auction. Reach a wide audience of potential buyers and showcase your creations to art enthusiasts who appreciate your talent"
+        />
+
+        <FeatureCard
+          @image="feature-buying.png"
+          @title="Buying"
+          @description="Shop for exquisite artworks and rare collectibles at accessible prices. Discover beautiful pieces that not only enhance your collection but also bring joy and inspiration into your space"
+        />
+
+        <FeatureCard
+          @image="feature-filtering.png"
+          @title="Filtering"
+          @description="Effortlessly filter and sort listings according to your preferences, whether by price, date, or popularity. This intuitive feature allows you to quickly find exactly what you’re looking for, making your shopping experience seamless"
+        />
+
+
+      </div>
+    </div>
   </section>
 
 
+  <footer class="bg-black text-white py-7 w-full">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="text-xl font-semibold">
+        ArtVault
+      </div>
+      <div class="flex space-x-4">
+        <a href="#" aria-label="Facebook" class="text-white hover:text-gray-400">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="#" aria-label="Twitter" class="text-white hover:text-gray-400">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" aria-label="Instagram" class="text-white hover:text-gray-400">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="text-white hover:text-gray-400">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 </div>

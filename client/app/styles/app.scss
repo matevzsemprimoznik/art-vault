@@ -7,5 +7,29 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+
+  @apply font-roboto
+}
+
+.feature-carousel{
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.feature-carousel > div {
+  flex-shrink: 0;
+  width: 30%;
+  scroll-snap-align: center;
+}
+
+.feature-carousel-wrapper {
+  position: relative;
 }
 
