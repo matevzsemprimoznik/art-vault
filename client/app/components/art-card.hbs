@@ -1,29 +1,31 @@
-<div class="bg-white rounded-lg shadow-lg">
-  <img src={{@image}} alt="Art" class="w-full h-64 object-cover rounded-t-lg">
-  <div class="px-4 py-2.5 mt-2 border-l-2 border-l-tint flex items-center justify-between">
-    <h2 class="text-md font-semibold max-w-[62%] cut-text">{{@title}}</h2>
-    <div>
-      <p class="text-xs text-gray-500">Current Bid</p>
-      <p class="text-md font-semibold">{{@price}}</p>
+<LinkTo @route="art" @model={{@id}} >
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer">
+    <img src={{@image}} alt="Art" class="w-full h-64 object-cover rounded-t-lg  hover:scale-105 transition-transform duration-300 ease-in-out transform">
+    <div class="px-4 py-2.5 mt-2 border-l-2 border-l-tint flex items-center justify-between">
+      <h2 class="text-md font-semibold max-w-[62%] cut-text">{{@title}}</h2>
+      <div>
+        <p class="text-xs text-gray-500">Current Bid</p>
+        <p class="text-md font-semibold">{{@price}}</p>
+      </div>
+    </div>
+    <div class="p-4">
+      {{#if (eq this.selectedId @id)}}
+        <div class="flex space-x-1.5">
+          <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small"  @onClick={{stop-propagation this.decreaseBid}}>
+            -
+          </Button>
+          <Button @class="w-full" @size="small" @onClick={{stop-propagation (fn this.onClickPlaceBid @id)}}>
+            Bid {{if this.valueToBid this.valueToBid @price}} USD
+          </Button>
+          <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small"  @onClick={{stop-propagation this.increaseBid}}>
+            +
+          </Button>
+        </div>
+      {{else}}
+        <Button @class="w-full" @size="small" @buttonStyleType="outline" @onClick={{stop-propagation (fn this.onClickPlaceBid @id)}}>
+          Place a Bid
+        </Button>
+      {{/if}}
     </div>
   </div>
-  <div class="p-4">
-    {{#if (eq this.selectedId @id)}}
-      <div class="flex space-x-1.5">
-        <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small"  @onClick={{this.decreaseBid}}>
-          -
-        </Button>
-        <Button @class="w-full" @size="small" @onClick={{fn this.onClickPlaceBid @id}}>
-          Bid {{if this.valueToBid this.valueToBid @price}} USD
-        </Button>
-        <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small"  @onClick={{this.increaseBid}}>
-          +
-        </Button>
-      </div>
-    {{else}}
-      <Button @class="w-full" @size="small" @buttonStyleType="outline" @onClick={{fn this.onClickPlaceBid @id}}>
-        Place a Bid
-      </Button>
-    {{/if}}
-  </div>
-</div>
+</LinkTo>
