@@ -113,5 +113,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "tailwind-merge": "^2.5.2"
   }
 }

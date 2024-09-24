@@ -1,0 +1,13 @@
+<div class="bg-white rounded-lg shadow-lg">
+  <img src={{@image}} alt="Art" class="w-full h-64 object-cover rounded-t-lg">
+  <div class="px-4 py-2.5 mt-2 border-l-2 border-l-tint flex items-center justify-between">
+    <h2 class="text-md font-semibold max-w-[62%] cut-text">{{@title}}</h2>
+    <div>
+      <p class="text-xs text-gray-500">Current Bid</p>
+      <p class="text-md font-semibold">{{@price}}</p>
+    </div>
+  </div>
+  <div class="p-4">
+    <Button @size="small" @class="w-full">Place a Bid</Button>
+  </div>
+</div>

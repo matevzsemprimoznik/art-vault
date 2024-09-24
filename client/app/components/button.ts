@@ -1,10 +1,12 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
+import { twMerge } from 'tailwind-merge';
 
 interface ButtonComponentArgs {
   buttonStyleType?: 'default' | 'ghost' | 'outline' | 'outline-white';
   onClick?: () => void;
   size: 'small' | 'medium' | 'large';
+  class?: string;
 }
 
 export default class ButtonComponent extends Component<ButtonComponentArgs> {
@@ -23,7 +25,9 @@ export default class ButtonComponent extends Component<ButtonComponentArgs> {
     if (this.args.size === 'small') twClasses += ' px-5 py-3 text-sm';
     else if (this.args.size === 'large') twClasses += ' px-10 py-4 text-lg';
     else twClasses += ' px-8 py-3.5 text-base';
-    return twClasses;
+    console.log('->', this.args.class);
+    console.log(twMerge(twClasses, this.args.class));
+    return twMerge(twClasses, this.args.class);
   }
 
   @action
