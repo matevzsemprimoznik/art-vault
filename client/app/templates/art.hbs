@@ -1,4 +1,39 @@
 {{page-title "Art"}}
 
-{{this.model.artId}}
-{{outlet}}
+<div class="container mx-auto px-8 py-16 arts-section-wrapper">
+  <div class="grid grid-cols-[33%_66%] gap-24">
+    <div class="flex items-center justify-start">
+      <img src="/feature-bidding.png" class="rounded" alt="Image">
+    </div>
+    <div class="">
+      <h1 class="text-2xl font-bold mb-10">Art 1</h1>
+      <p class="text-gray-600 mb-10">This is a beautiful art piece</p>
+      <div class="flex space-x-20 mb-10">
+        <div>
+          <p class="text-gray-600">Current Bid</p>
+          <p class="text-md font-semibold">110 USD</p>
+        </div>
+        <div>
+          <p class="text-gray-600"> Start Bid</p>
+          <p class="text-md font-semibold">100 USD</p>
+        </div>
+        <div>
+          <p class="text-gray-600">End Date</p>
+          <p class="text-md font-semibold">10/10/2021</p>
+        </div>
+      </div>
+
+      <div class="flex space-x-1.5">
+        <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small" >
+          -
+        </Button>
+        <Button @class="px-20" @size="small" >
+          Bid USD
+        </Button>
+        <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small">
+          +
+        </Button>
+      </div>
+    </div>
+  </div>
+</div>
