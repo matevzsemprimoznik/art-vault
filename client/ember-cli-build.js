@@ -29,5 +29,7 @@ module.exports = function (defaults) {
     },
   });
 
+  app.import('node_modules/auth0-js/build/auth0.js');
+
   return app.toTree();
 };

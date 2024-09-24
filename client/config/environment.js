@@ -1,5 +1,7 @@
 'use strict';
 
+const AUTH_CONFIG = require('./auth0');
+
 module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'client',
@@ -43,6 +45,12 @@ module.exports = function (environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
+
+  ENV.auth0 = {
+    clientId: AUTH_CONFIG.clientId,
+    domain: AUTH_CONFIG.domain,
+    callbackUrl: AUTH_CONFIG.callbackUrl,
+  };
 
   return ENV;
 };

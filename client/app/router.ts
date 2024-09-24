@@ -9,4 +9,5 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('arts');
   this.route('art', { path: '/arts/:art_id' });
+  this.route('callback');
 });

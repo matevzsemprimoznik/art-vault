@@ -11,7 +11,11 @@
     </ul>
     <div class="flex space-x-4">
       <Button @buttonStyleType="ghost" @size="small">Sign up</Button>
-      <Button @buttonStyleType="outline-white" @size="small">Log in</Button>
+      {{#if this.isAuthenticated}}
+        <Button @buttonStyleType="outline-white" @size="small" @onClick={{this.logout}}>Log out</Button>
+      {{else}}
+        <Button @buttonStyleType="outline-white" @size="small" @onClick={{this.login}}>Log in</Button>
+      {{/if}}
     </div>
   </div>
 </nav>

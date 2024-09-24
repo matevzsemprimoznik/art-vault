@@ -15,6 +15,9 @@ module.exports = {
   env: {
     browser: true,
   },
+  globals: {
+    auth0: false,
+  },
   rules: {},
   overrides: [
     // ts files
