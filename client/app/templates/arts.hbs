@@ -1,2 +1,44 @@
 {{page-title "Arts"}}
-{{outlet}}
+
+<div class="container mx-auto px-8 py-12 arts-section-wrapper">
+{{!--  <aside class="mt-10">--}}
+{{!--    <Accordion @title="Date">--}}
+{{!--      <label for="startDate" class="block">From:</label>--}}
+{{!--      <input type="date" id="startDate" class="border border-gray-300 p-2 w-full" {{on "input" this.updateStartDate}}>--}}
+
+{{!--      <label for="endDate" class="block mt-2">To:</label>--}}
+{{!--      <input type="date" id="endDate" class="border border-gray-300 p-2 w-full" {{on "input" this.updateEndDate}}>--}}
+
+{{!--    </Accordion>--}}
+
+{{!--    <Accordion @title="Price">--}}
+{{!--      <label for="price">Select Price Range:</label>--}}
+{{!--      <input type="range" id="price" name="price" min="0" max="1000">--}}
+{{!--    </Accordion>--}}
+
+{{!--    <Accordion @title="Category">--}}
+{{!--      <label for="category">Select Category:</label>--}}
+{{!--      <select id="category" name="category">--}}
+{{!--        <option value="all">All</option>--}}
+{{!--        <option value="art">Art</option>--}}
+{{!--        <option value="sculpture">Sculpture</option>--}}
+{{!--        <option value="painting">Painting</option>--}}
+{{!--      </select>--}}
+{{!--    </Accordion>--}}
+{{!--  </aside>--}}
+
+
+  <main class="">
+    <h1 class="text-3xl font-bold">Arts</h1>
+    <input type="text" placeholder="Search for products..." class="search-bar">
+
+    <div class="arts-section">
+      <div class="product-item">Product 1</div>
+      <div class="product-item">Product 2</div>
+      <div class="product-item">Product 3</div>
+      <div class="product-item">Product 4</div>
+      <div class="product-item">Product 5</div>
+      <div class="product-item">Product 6</div>
+    </div>
+  </main>
+</div>

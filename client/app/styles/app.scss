@@ -19,6 +19,7 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 .list::-webkit-scrollbar {
   display: none;
 }
@@ -31,4 +32,21 @@ body {
 
 .feature-carousel-wrapper {
   position: relative;
+}
+
+.arts-section-wrapper {
+  //display: grid;
+  //grid-template-columns: 200px 1fr;
+  //gap: 2rem;
+}
+
+.arts-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.2rem;
+}
+
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
