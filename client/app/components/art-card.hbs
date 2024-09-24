@@ -8,6 +8,22 @@
     </div>
   </div>
   <div class="p-4">
-    <Button @size="small" @class="w-full">Place a Bid</Button>
+    {{#if (eq this.selectedId @id)}}
+      <div class="flex space-x-1.5">
+        <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small"  @onClick={{this.decreaseBid}}>
+          -
+        </Button>
+        <Button @class="w-full" @size="small" @onClick={{fn this.onClickPlaceBid @id}}>
+          Bid {{if this.valueToBid this.valueToBid @price}} USD
+        </Button>
+        <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small"  @onClick={{this.increaseBid}}>
+          +
+        </Button>
+      </div>
+    {{else}}
+      <Button @class="w-full" @size="small" @buttonStyleType="outline" @onClick={{fn this.onClickPlaceBid @id}}>
+        Place a Bid
+      </Button>
+    {{/if}}
   </div>
 </div>

@@ -52,12 +52,11 @@ body {
 }
 
 .cut-text {
-    display: -webkit-box; /* Uporabi flexbox za omejitev vrstic */
-    -webkit-line-clamp: 2; /* Omeji na največ 2 vrstice */
-    -webkit-box-orient: vertical; /* Določi orientacijo boxa */
-    overflow: hidden; /* Skrij preostanek besedila */
-    text-overflow: ellipsis; /* Dodaj elipso (triple pike) */
-    white-space: normal; /* Prelomi vrstice */
-    line-height: 1.3; /* Višina vrstice */
-
+  display: -webkit-box; /* Uporabi flexbox za omejitev vrstic */
+  -webkit-line-clamp: 2; /* Omeji na največ 2 vrstice */
+  -webkit-box-orient: vertical; /* Določi orientacijo boxa */
+  overflow: hidden; /* Skrij preostanek besedila */
+  text-overflow: ellipsis; /* Dodaj elipso (triple pike) */
+  white-space: normal; /* Prelomi vrstice */
+  line-height: 1.3; /* Višina vrstice */
 }
