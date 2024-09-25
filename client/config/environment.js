@@ -18,12 +18,12 @@ module.exports = function (environment) {
 
     APP: {
       API_URL: process.env.API_URL,
+      URL: process.env.URL,
     },
 
     auth0: {
       clientId: process.env.AUTH0_CLIENT_ID,
       domain: process.env.AUTH0_DOMAIN,
-      callbackUrl: process.env.AUTH0_CALLBACK_URL,
     },
   };
 

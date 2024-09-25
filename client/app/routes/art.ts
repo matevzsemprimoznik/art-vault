@@ -1,11 +1,12 @@
 import Route from '@ember/routing/route';
 import type Transition from '@ember/routing/transition';
 import { service } from '@ember/service';
+import PrivateRoute from 'client/routes/private';
 
 interface ArtRouteParams {
   art_id: string;
 }
-export default class ArtRoute extends Route {
+export default class ArtRoute extends PrivateRoute {
   @service store;
   async model(
     params: ArtRouteParams,

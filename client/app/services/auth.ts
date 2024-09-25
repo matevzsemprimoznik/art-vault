@@ -2,24 +2,22 @@ import Service from '@ember/service';
 import { computed } from '@ember/object';
 import config from 'client/config/environment';
 import { tracked } from '@glimmer/tracking';
+import auth0 from 'auth0-js';
 
 export default class AuthService extends Service {
   @tracked user = null;
   @tracked token = null;
   get auth0() {
     return new auth0.WebAuth({
-      domain: config.auth0.domain, // domain from auth0
-      clientID: config.auth0.clientId, // clientId from auth0
-      redirectUri: config.auth0.callbackUrl,
-      audience: `https://dev-qswf22livun2kluc.us.auth0.com/api/v2/`,
+      domain: config.auth0.domain as string,
+      clientID: config.auth0.clientId as string,
+      redirectUri: `${config.APP.URL}/callback`,
+      audience: `https://${config.auth0.domain}/api/v2/`,
       responseType: 'token id_token',
-      scope: 'openid profile', // adding profile because we want username, given_name, etc.
+      scope: 'openid profile',
     });
   }
 
-  /**
-   * Send a user over to the hosted auth0 login page
-   */
   login() {
     this.auth0.authorize();
   }
@@ -45,15 +43,6 @@ export default class AuthService extends Service {
   }
 
   /**
-   * Computed to tell if a user is logged in or not
-   * @return boolean
-   */
-  @computed
-  get isAuthenticated() {
-    return this.checkLogin();
-  }
-
-  /**
    * Use the token to set our user
    */
   setUser(token) {
@@ -67,14 +56,18 @@ export default class AuthService extends Service {
   /**
    * Check if we are authenticated using the auth0 library's checkSession
    */
-  checkLogin() {
-    this.auth0.checkSession({}, (err, authResult) => {
-      if (!err && authResult) {
-        console.log(authResult, 'authResult');
-        this.setUser(authResult.accessToken);
-        this.token = authResult.idToken;
-        return true;
-      }
+  async isAuthenticated(): Promise<boolean> {
+    return new Promise<boolean>((resolve) => {
+      this.auth0.checkSession({}, (err, authResult) => {
+        if (err || !authResult) {
+          console.error('Error during checkSession:', err);
+          resolve(false);
+        } else {
+          this.setUser(authResult.accessToken);
+          this.token = authResult.idToken;
+          resolve(true);
+        }
+      });
     });
   }
 
@@ -83,8 +76,8 @@ export default class AuthService extends Service {
    */
   logout() {
     this.auth0.logout({
-      clientID: config.auth0.clientId,
-      returnTo: 'http://localhost:4200',
+      clientID: config.auth0.clientId as string,
+      returnTo: config.APP.URL as string,
     });
   }
 }

@@ -1,0 +1,5 @@
+class AddEndDateToItem < ActiveRecord::Migration[7.2]
+  def change
+    add_column :items, :end_date, :timestamp
+  end
+end

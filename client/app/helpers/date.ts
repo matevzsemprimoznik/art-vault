@@ -1,7 +1,6 @@
 import { helper } from '@ember/component/helper';
 
 export default helper(function date([date]) {
-  console.log(date);
   date = new Date(date);
   if (!date) return '';
 
