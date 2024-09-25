@@ -9,9 +9,6 @@ export default class AddItemController extends Controller {
     name: '',
     description: '',
     image: '',
-    start_price: 0,
-    start_date: '',
-    end_date: '',
   };
 
   @action
@@ -38,9 +35,6 @@ export default class AddItemController extends Controller {
       name: '',
       description: '',
       image: '',
-      start_price: 0,
-      start_date: '',
-      end_date: '',
     };
   }
 }
