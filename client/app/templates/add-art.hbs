@@ -1,0 +1,82 @@
+{{page-title "AddArt"}}
+
+<div class="container mx-auto px-8 py-16">
+  <h2 class="text-2xl font-bold mb-4">Add Item</h2>
+
+  <form {{on "submit" this.submitForm}} class="space-y-4">
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
+      <input
+        type="text"
+        id="name"
+        value={{this.item.name}}
+        {{on "input" (fn this.updateField "name")}}
+        required
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-tint p-2"
+      />
+    </div>
+
+    <div>
+      <label for="description" class="block text-sm font-medium text-gray-700">Description:</label>
+      <textarea
+        id="description"
+        {{on "input" (fn this.updateField "description")}}
+        required
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-tint  p-2"
+      >{{this.item.description}}</textarea>
+    </div>
+
+    <div>
+      <label for="image" class="block text-sm font-medium text-gray-700">Image URL:</label>
+      <input
+        type="url"
+        id="image"
+        value={{this.item.image}}
+        {{on "input" (fn this.updateField "image")}}
+        required
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-tint  p-2"
+      />
+    </div>
+
+    <div>
+      <label for="start_price" class="block text-sm font-medium text-gray-700">Start Price:</label>
+      <input
+        type="number"
+        id="start_price"
+        value={{this.item.start_price}}
+        {{on "input" (fn this.updateField "start_price")}}
+        required
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-tint p-2"
+      />
+    </div>
+
+    <div>
+      <label for="start_date" class="block text-sm font-medium text-gray-700">Start Date:</label>
+      <input
+        type="datetime-local"
+        id="start_date"
+        value={{this.item.start_date}}
+        {{on "input" (fn this.updateField "start_date")}}
+        required
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-tint p-2"
+      />
+    </div>
+
+    <div>
+      <label for="end_date" class="block text-sm font-medium text-gray-700">End Date:</label>
+      <input
+        type="datetime-local"
+        id="end_date"
+        value={{this.item.end_date}}
+        {{on "input" (fn this.updateField "end_date")}}
+        required
+        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-tint p-2"
+      />
+    </div>
+
+    <Button @class="px-20" @size="small" @onClick={{this.submitForm}}>
+      Bid USD
+    </Button>
+  </form>
+
+</div>
