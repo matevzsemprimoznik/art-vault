@@ -4,15 +4,15 @@ import { service } from '@ember/service';
 import PrivateRoute from 'client/routes/private';
 
 interface ArtRouteParams {
-  art_id: string;
+  auction_id: string;
 }
-export default class ArtRoute extends PrivateRoute {
+export default class AuctionRoute extends PrivateRoute {
   @service store;
   async model(
     params: ArtRouteParams,
     transition: Transition,
   ): PromiseLike<unknown> | unknown {
-    const artItem = await this.store.findRecord('item', params.art_id);
-    return { artItem };
+    const auction = await this.store.findRecord('auction', params.auction_id);
+    return { auction };
   }
 }

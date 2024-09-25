@@ -7,4 +7,6 @@ export default class AuctionModel extends Model {
   @attr start_date;
   @attr end_date;
   @attr item_ids;
+  @attr items;
+  @attr items_images;
 }

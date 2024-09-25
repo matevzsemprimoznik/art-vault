@@ -3,11 +3,11 @@
 <div class="container mx-auto px-8 py-16 arts-section-wrapper">
   <div class="grid grid-cols-[33%_1fr] gap-24">
     <div class="flex items-center justify-start">
-      <img src="{{this.model.artItem.image}}" class="rounded" alt="Image">
+      <img src="{{this.model.auction.items.[0].image}}" class="rounded" alt="Image">
     </div>
     <div class="">
-      <h1 class="text-2xl font-bold mb-10">{{this.model.artItem.name}}</h1>
-      <p class="text-gray-600 mb-10">{{this.model.artItem.description}}</p>
+      <h1 class="text-2xl font-bold mb-10">{{this.model.auction.name}}</h1>
+      <p class="text-gray-600 mb-10">{{this.model.auction.description}}</p>
       <div class="flex space-x-20 mb-10">
         <div>
           <p class="text-gray-600 text-nowrap">Current Bid</p>
@@ -15,15 +15,15 @@
         </div>
         <div>
           <p class="text-gray-600 text-nowrap">Start Price</p>
-          <p class="text-md font-semibold">{{this.model.artItem.start_price}} USD</p>
+          <p class="text-md font-semibold">{{this.model.auction.start_price}} USD</p>
         </div>
         <div>
           <p class="text-gray-600">Start Date</p>
-          <p class="text-md font-semibold">{{date this.model.artItem.start_date}}</p>
+          <p class="text-md font-semibold">{{date this.model.auction.start_date}}</p>
         </div>
         <div>
           <p class="text-gray-600">End Date</p>
-          <p class="text-md font-semibold">{{date this.model.artItem.end_date}}</p>
+          <p class="text-md font-semibold">{{date this.model.auction.end_date}}</p>
         </div>
       </div>
 

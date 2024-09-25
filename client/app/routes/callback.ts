@@ -7,6 +7,6 @@ export default class CallbackRoute extends Route {
 
   async beforeModel() {
     await this.auth.handleAuthentication();
-    this.router.transitionTo('/arts');
+    this.router.transitionTo('/auctions');
   }
 }

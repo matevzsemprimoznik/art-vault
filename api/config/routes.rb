@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     end
   end
   resources :auctions
+  resources :bids, only: [:create]
 end
