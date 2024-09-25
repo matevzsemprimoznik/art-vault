@@ -1,6 +1,6 @@
 'use strict';
 
-const AUTH_CONFIG = require('./auth0');
+require('dotenv').config();
 
 module.exports = function (environment) {
   const ENV = {
@@ -17,8 +17,13 @@ module.exports = function (environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      API_URL: process.env.API_URL,
+    },
+
+    auth0: {
+      clientId: process.env.AUTH0_CLIENT_ID,
+      domain: process.env.AUTH0_DOMAIN,
+      callbackUrl: process.env.AUTH0_CALLBACK_URL,
     },
   };
 
@@ -45,12 +50,6 @@ module.exports = function (environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
-
-  ENV.auth0 = {
-    clientId: AUTH_CONFIG.clientId,
-    domain: AUTH_CONFIG.domain,
-    callbackUrl: AUTH_CONFIG.callbackUrl,
-  };
 
   return ENV;
 };

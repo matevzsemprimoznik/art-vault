@@ -11,7 +11,7 @@
     </ul>
     <div class="flex space-x-4">
       <Button @buttonStyleType="ghost" @size="small">Sign up</Button>
-      {{#if this.isAuthenticated}}
+      {{#if this.auth.user}}
         <Button @buttonStyleType="outline-white" @size="small" @onClick={{this.logout}}>Log out</Button>
       {{else}}
         <Button @buttonStyleType="outline-white" @size="small" @onClick={{this.login}}>Log in</Button>

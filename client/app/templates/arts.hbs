@@ -33,6 +33,9 @@
 
 
     <div class="arts-section">
+      {{#each this.model.items as |art|}}
+        <ArtCard @id={{art.id}} @image={{art.image}} @title={{art.name}} @description={{art.description}} @price={{art.start_price}} />
+      {{/each}}
       <ArtCard @id='1' @image="feature-bidding.png" @title="Art 1 is yeri beautfiful art whick is reletivly new" @description="This is a beautiful art piece" @price="100 USD" />
       <ArtCard @id='2' @image="feature-buying.png" @title="Art 2" @description="This is a beautiful art piece" @price={{100}} />
       <ArtCard @id='3' @image="feature-selling.png" @title="Art 3" @description="This is a beautiful art piece" @price={{200}} />

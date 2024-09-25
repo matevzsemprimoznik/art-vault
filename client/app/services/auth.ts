@@ -5,13 +5,14 @@ import { tracked } from '@glimmer/tracking';
 
 export default class AuthService extends Service {
   @tracked user = null;
+  @tracked token = null;
   get auth0() {
     return new auth0.WebAuth({
       domain: config.auth0.domain, // domain from auth0
       clientID: config.auth0.clientId, // clientId from auth0
       redirectUri: config.auth0.callbackUrl,
-      audience: `https://${config.auth0.domain}/userinfo`,
-      responseType: 'token',
+      audience: `https://dev-qswf22livun2kluc.us.auth0.com/api/v2/`,
+      responseType: 'token id_token',
       scope: 'openid profile', // adding profile because we want username, given_name, etc.
     });
   }
@@ -20,7 +21,6 @@ export default class AuthService extends Service {
    * Send a user over to the hosted auth0 login page
    */
   login() {
-    console.log('delaaa');
     this.auth0.authorize();
   }
 
@@ -30,9 +30,7 @@ export default class AuthService extends Service {
    */
   handleAuthentication() {
     return new Promise((resolve, reject) => {
-      console.log(this.auth0.parseHash);
       this.auth0.parseHash((err, authResult) => {
-        console.log('----------------------', err, authResult);
         if (err) {
           return reject(err);
         }
@@ -59,8 +57,7 @@ export default class AuthService extends Service {
    * Use the token to set our user
    */
   setUser(token) {
-    this.auth0.client.userInfo(token, (err, profile) => {
-      console.log('setUser', profile);
+    this.auth0.client.userInfo(token, async (err, profile) => {
       if (!err) {
         this.set('user', profile);
       }
@@ -73,7 +70,9 @@ export default class AuthService extends Service {
   checkLogin() {
     this.auth0.checkSession({}, (err, authResult) => {
       if (!err && authResult) {
+        console.log(authResult, 'authResult');
         this.setUser(authResult.accessToken);
+        this.token = authResult.idToken;
         return true;
       }
     });

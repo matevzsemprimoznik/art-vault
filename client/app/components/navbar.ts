@@ -5,11 +5,6 @@ import { action } from '@ember/object';
 export default class NavbarComponent extends Component {
   @service('auth') auth;
 
-  get isAuthenticated() {
-    console.log(this.auth.user);
-    return this.auth.isAuthenticated;
-  }
-
   @action
   login() {
     console.log(this.auth);

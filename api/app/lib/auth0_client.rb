@@ -28,7 +28,7 @@ class Auth0Client
                  iss: domain_url,
                  verify_iss: true,
                  aud: Rails.configuration.auth0[:audience],
-                 verify_aud: true,
+                 verify_aud: false,
                  jwks: { keys: jwks_hash[:keys] }
                })
   end
