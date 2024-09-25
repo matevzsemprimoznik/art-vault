@@ -5,4 +5,6 @@ export default class ItemModel extends Model {
   @attr description;
   @attr image;
   @attr start_price;
+  @attr start_date;
+  @attr end_date;
 }

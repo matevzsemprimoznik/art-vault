@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_24_222000) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_25_081311) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_24_222000) do
     t.datetime "updated_at", null: false
     t.text "image"
     t.decimal "start_price"
+    t.datetime "start_date", precision: nil
+    t.datetime "end_date", precision: nil
   end
 
   add_foreign_key "auction_items", "auctions"
