@@ -5,6 +5,19 @@ class BidsController < ApplicationController
       @bid = Bid.new(bid_params)
       @bid.date = Time.current
   
+      auction = Auction.find(@bid.auction_id)
+      last_bid = auction.bids.order(created_at: :desc).first
+  
+      if last_bid
+        if @bid.price <= last_bid.price
+          return render json: { error: 'Bid must be greater than the last bid.' }, status: :unprocessable_entity
+        end
+      else
+        if @bid.price <= auction.start_price
+          return render json: { error: 'Bid must be greater than the starting price.' }, status: :unprocessable_entity
+        end
+      end
+  
       if @bid.save
         render json: @bid, status: :created
       else
