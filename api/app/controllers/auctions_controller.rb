@@ -22,7 +22,7 @@ class AuctionsController < ApplicationController
       last_bid = @auction.bids.order(created_at: :desc).first
       auction_data = @auction.as_json.merge(
         price: last_bid ? last_bid.price : @auction.start_price,
-        items: @auction.items.as_json(only: [:id, :name, :image])
+        items: @auction.items.as_json(only: [:id, :name, :image, :description])
       )
       
       render json: auction_data

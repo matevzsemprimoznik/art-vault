@@ -1,14 +1,9 @@
 {{page-title "Art"}}
 
 <div class="container mx-auto px-8 py-16 arts-section-wrapper">
-  <div class="grid grid-cols-[33%_1fr] gap-24">
-    <div class="flex items-center justify-start">
-      <img src="{{get this.model.auction.items "0.image"}}" class="rounded" alt="Image">
-    </div>
-    <div class="">
       <h1 class="text-2xl font-bold mb-10">{{this.model.auction.name}}</h1>
       <p class="text-gray-600 mb-10">{{this.model.auction.description}}</p>
-      <div class="flex space-x-20 mb-10">
+      <div class="flex space-x-28 mb-10">
         <div>
           <p class="text-gray-600 text-nowrap">Current Bid</p>
           <p class="text-md font-semibold">{{this.model.auction.price}} USD</p>
@@ -30,6 +25,18 @@
       <div class="mt-10 w-72">
         <BiddingButtons @auction={{this.model.auction}}/>
       </div>
+  <div>
+    <h2 class="text-xl font-semibold mb-7 mt-24">Arts in this auction</h2>
+    <div>
+      {{#each this.model.auction.items as |item|}}
+        <div class="flex space-x-4 mb-10">
+          <div>
+            <h3 class="text-lg font-medium mb-1">{{item.name}}</h3>
+            <p class="text-gray-600">{{item.description}}</p>
+          </div>
+          <img src={{item.image}} alt="Art" class="mt-4 h-60 object-cover rounded-lg">
+        </div>
+      {{/each}}
     </div>
   </div>
 </div>

@@ -15,8 +15,8 @@ export default class BiddingButtonsComponent extends Component {
         auction_id: id,
       })
       .save();
-    this.store.findAll('auction');
-    this.store.findRecord('auction', id);
+    await this.store.findAll('auction');
+    await this.store.findRecord('auction', id);
   }
 
   @action
