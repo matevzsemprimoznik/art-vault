@@ -40,7 +40,6 @@ class Auth0Client
 
   # Token Validation 
   def self.validate_token(token)
-    Rails.logger.info("Validating token: #{token}")
     jwks_response = get_jwks
 
     unless jwks_response.is_a? Net::HTTPSuccess
@@ -51,7 +50,6 @@ class Auth0Client
     jwks_hash = JSON.parse(jwks_response.body).deep_symbolize_keys
 
     decoded_token = decode_token(token, jwks_hash)
-    Rails.logger.info("Decoded token: #{decoded_token}")
 
     Response.new(Token.new(decoded_token), nil)
   rescue JWT::VerificationError, JWT::DecodeError => e

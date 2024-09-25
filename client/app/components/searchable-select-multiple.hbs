@@ -1,0 +1,40 @@
+<div>
+  <div>
+    <label for="search" class="block text-sm font-medium text-gray-700">Search Items:</label>
+    <input
+      type="text"
+      id="search"
+      {{on "input" this.updateQuery}}
+      {{on "focus" this.openDropdown}}
+      class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-tint p-2"
+      {{on-click-outside this.clickedOutside}}
+    />
+    {{#if this.dropdownOpened}}
+      <ul class="mt-2 border border-gray-300 rounded-md shadow-sm absolute bg-white dropdown">
+        {{#each this.args.items as |item|}}
+          <li
+            class="p-2 cursor-pointer hover:bg-gray-100 searchable-select-item"
+            {{on "click" (fn this.addItem item)}}
+          >
+            {{item.name}}
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+
+  {{#if this.args.selectedItems}}
+    <div>
+      <ul class="mt-2">
+        {{#each this.args.selectedItems as |item|}}
+          <li class="flex justify-between items-center bg-gray-100 rounded-md p-2 my-1">
+            <span>{{item.name}}</span>
+            <Button @class="py-1 px-3" @onClick={{fn this.removeItem item}} @buttonStyleType="ghost">
+              x
+            </Button>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+</div>

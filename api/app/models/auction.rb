@@ -1,7 +1,7 @@
 class Auction < ApplicationRecord
     has_many :auction_items
     has_many :items, through: :auction_items
-    has_many: :bids
+    has_many :bids
   
     validates :name, presence: true, length: { minimum: 3, maximum: 20 }
     validates :description, presence: true
@@ -9,9 +9,7 @@ class Auction < ApplicationRecord
     validates :end_date, presence: true
     validate :start_date_before_end_date
     validates :start_price, presence: true, numericality: { greater_than: 0 }
-  
-    validate :items_present
-  
+    
     private
   
     def start_date_before_end_date

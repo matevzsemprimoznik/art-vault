@@ -13,6 +13,7 @@ class AuctionsController < ApplicationController
   
     def create
       @auction = Auction.new(auction_params)
+      Rails.logger.info('Auction params: ' + auction_params.to_s)
       
       if @auction.save
         render json: @auction, status: :created, location: @auction
@@ -43,7 +44,7 @@ class AuctionsController < ApplicationController
     end
   
     def auction_params
-      params.require(:auction).permit(:name, :description, :start_date, :end_date, :start_price, item_ids: [])
+      params.permit(:name, :description, :start_date, :end_date, :start_price, item_ids: [])
     end
   end
   
