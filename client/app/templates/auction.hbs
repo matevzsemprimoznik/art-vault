@@ -3,7 +3,7 @@
 <div class="container mx-auto px-8 py-16 arts-section-wrapper">
   <div class="grid grid-cols-[33%_1fr] gap-24">
     <div class="flex items-center justify-start">
-      <img src="{{this.model.auction.items.[0].image}}" class="rounded" alt="Image">
+      <img src="{{get this.model.auction.items "0.image"}}" class="rounded" alt="Image">
     </div>
     <div class="">
       <h1 class="text-2xl font-bold mb-10">{{this.model.auction.name}}</h1>
@@ -11,7 +11,7 @@
       <div class="flex space-x-20 mb-10">
         <div>
           <p class="text-gray-600 text-nowrap">Current Bid</p>
-          <p class="text-md font-semibold">110 USD</p>
+          <p class="text-md font-semibold">{{this.model.auction.price}} USD</p>
         </div>
         <div>
           <p class="text-gray-600 text-nowrap">Start Price</p>
@@ -27,16 +27,8 @@
         </div>
       </div>
 
-      <div class="flex space-x-1.5">
-        <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small" >
-          -
-        </Button>
-        <Button @class="px-20" @size="small" >
-          Bid USD
-        </Button>
-        <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small">
-          +
-        </Button>
+      <div class="mt-10 w-72">
+        <BiddingButtons @auction={{this.model.auction}}/>
       </div>
     </div>
   </div>

@@ -17,8 +17,17 @@ class AuctionsController < ApplicationController
     end
   
     def show
-      render json: @auction, include: :items
+      @auction = Auction.includes(:items).find(params[:id])
+      
+      last_bid = @auction.bids.order(created_at: :desc).first
+      auction_data = @auction.as_json.merge(
+        price: last_bid ? last_bid.price : @auction.start_price,
+        items: @auction.items.as_json(only: [:id, :name, :image])
+      )
+      
+      render json: auction_data
     end
+    
   
     def create
       @auction = Auction.new(auction_params)

@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'client/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | art-card', function (hooks) {
+module('Integration | Component | auction-card', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {

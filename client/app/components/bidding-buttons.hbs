@@ -1,0 +1,11 @@
+<div class="flex space-x-1.5">
+  <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small"  @onClick={{stop-propagation this.decreaseBid}}>
+    -
+  </Button>
+  <Button @class="w-full" @size="small" @onClick={{stop-propagation (fn this.placeBid this.args.auction.id)}}>
+    Bid {{if this.valueToBid this.valueToBid @auction.price}} USD
+  </Button>
+  <Button @class="min-w-[45px] max-h-[45px] h-[45px] p-0" @size="small"  @onClick={{stop-propagation this.increaseBid}}>
+    +
+  </Button>
+</div>

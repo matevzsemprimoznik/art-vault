@@ -3,22 +3,22 @@ import { setupRenderingTest } from 'client/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | art-card', function (hooks) {
+module('Integration | Component | bidding-buttons', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<AuctionCard />`);
+    await render(hbs`<BiddingButtons />`);
 
     assert.dom().hasText('');
 
     // Template block usage:
     await render(hbs`
-      <AuctionCard>
+      <BiddingButtons>
         template block text
-      </AuctionCard>
+      </BiddingButtons>
     `);
 
     assert.dom().hasText('template block text');
