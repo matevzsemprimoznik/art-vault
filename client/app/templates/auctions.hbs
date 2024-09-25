@@ -34,7 +34,7 @@
 
     <div class="arts-section">
       {{#each this.model.auctions as |auction|}}
-        <ArtCard @id={{auction.id}} @images={{auction.items_images}} @title={{auction.name}} @description={{auction.description}} @price={{auction.price}} />
+        <ArtCard @id={{auction.id}} @items={{auction.items}} @title={{auction.name}} @description={{auction.description}} @price={{auction.price}} />
       {{/each}}
     </div>
   </main>

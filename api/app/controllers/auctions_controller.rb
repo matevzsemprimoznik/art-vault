@@ -3,14 +3,14 @@ class AuctionsController < ApplicationController
     before_action :authorize
   
     def index
-      @auctions = Auction.all
+      @auctions = Auction.includes(:items).all
     
       auctions_with_price = @auctions.map do |auction|
         last_bid = auction.bids.order(created_at: :desc).first
-        auction_data = auction.as_json.merge(price: last_bid ? last_bid.price : auction.start_price)
-    
-        # Dodajanje slik artiklov
-        auction_data.merge(items_images: auction.items.map(&:image))
+        auction_data = auction.as_json.merge(
+          price: last_bid ? last_bid.price : auction.start_price,
+          items: auction.items.as_json(only: [:id, :name, :image])
+        )
       end
     
       render json: auctions_with_price
