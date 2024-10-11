@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
     private
   
     def set_item
-      @item = Item.find(params[:id])
+      @item = Item.find_by(id: params[:id], user_id: @user_uid)
     rescue ActiveRecord::RecordNotFound
       render json: { error: 'Item not found' }, status: :not_found
     end
