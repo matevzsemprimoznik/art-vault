@@ -10,15 +10,15 @@ module('Integration | Component | art-card', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<AuctionCard />`);
+    await render(hbs`<ArtCard />`);
 
     assert.dom().hasText('');
 
     // Template block usage:
     await render(hbs`
-      <AuctionCard>
+      <ArtCard>
         template block text
-      </AuctionCard>
+      </ArtCard>
     `);
 
     assert.dom().hasText('template block text');

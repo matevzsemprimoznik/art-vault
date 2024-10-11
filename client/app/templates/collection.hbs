@@ -1,0 +1,12 @@
+{{page-title "Collection"}}
+<div class="container mx-auto px-8 py-12 arts-section-wrapper">
+  <main class="mb-10">
+    <h1 class="text-3xl font-bold mb-10">My Collection</h1>
+
+    <div class="arts-section">
+      {{#each this.model.items as |item|}}
+        <ArtCard @item={{item}} />
+      {{/each}}
+    </div>
+  </main>
+</div>

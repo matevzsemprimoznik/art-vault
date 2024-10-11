@@ -12,4 +12,6 @@ Router.map(function () {
   this.route('callback');
   this.route('add-art');
   this.route('add-auction');
+  this.route('collection');
+  this.route('item', { path: '/items/:item_id' });
 });

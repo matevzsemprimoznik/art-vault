@@ -1,0 +1,11 @@
+<LinkTo @route="item" @model="{{@item.id}}">
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer">
+    <img src={{@item.image}} alt="Art" class="w-full h-64 object-cover rounded-t-lg  hover:scale-105 transition-transform duration-300 ease-in-out transform">
+    <div class="px-4 py-2.5 mt-2 border-l-2 border-l-tint flex items-center justify-between">
+      <h2 class="text-md font-semibold max-w-[62%] cut-text">{{@item.name}}</h2>
+    </div>
+    <div class="p-4">
+      <p class="text-gray-600 text-md line-clamp-3">{{@item.description}}</p>
+    </div>
+  </div>
+</LinkTo>
