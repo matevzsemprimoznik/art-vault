@@ -4,6 +4,9 @@ class AuctionsController < ApplicationController
   
     def index
       @auctions = Auction.includes(:items).all
+
+      # print decoded token
+      Rails.logger.info('Decoded token: ' + @user_uid.to_s)
     
       auctions_with_price = @auctions.map do |auction|
         last_bid = auction.bids.order(created_at: :desc).first
@@ -31,7 +34,7 @@ class AuctionsController < ApplicationController
   
     def create
       @auction = Auction.new(auction_params)
-      Rails.logger.info('Auction params: ' + auction_params.to_s)
+      @auction.user_id = @user_uid
       
       if @auction.save
         render json: @auction, status: :created, location: @auction

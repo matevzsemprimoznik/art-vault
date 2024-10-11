@@ -26,6 +26,7 @@ module Secured
       validation_response = Auth0Client.validate_token(token)
   
       @decoded_token = validation_response.decoded_token
+      @user_uid = @decoded_token.token[0]['sub']
   
       return unless (error = validation_response.error)
   
