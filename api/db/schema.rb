@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_25_115922) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_11_094502) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_25_115922) do
     t.decimal "start_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_id"
   end
 
   create_table "bids", force: :cascade do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_25_115922) do
     t.bigint "auction_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_id"
     t.index ["auction_id"], name: "index_bids_on_auction_id"
   end
 
@@ -69,6 +71,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_25_115922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image"
+    t.string "user_id"
   end
 
   add_foreign_key "auction_items", "auctions"

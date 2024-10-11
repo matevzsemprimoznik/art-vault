@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
    before_action :set_item, only: %i[show update destroy]
   
     def index
-      @items = Item.all
+      @items = Item.where(user_id: @user_uid)
       render json: @items
     end
   
@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   
     def create
         @item = Item.new(item_params)
+        @item.user_id = @user_uid
       
         if @item.save
           render json: @item, status: :created, location: @item, include: :categories

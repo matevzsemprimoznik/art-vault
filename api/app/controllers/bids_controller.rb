@@ -4,6 +4,7 @@ class BidsController < ApplicationController
     def create
       @bid = Bid.new(bid_params)
       @bid.date = Time.current
+      @bid.user_id = @user_uid
   
       auction = Auction.find(@bid.auction_id)
       last_bid = auction.bids.order(created_at: :desc).first
