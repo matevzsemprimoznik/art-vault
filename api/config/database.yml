@@ -20,6 +20,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: user
   password: password
+  host: <%= ENV["POSTGRES_HOST"] || "127.0.0.1" %>
 
 development:
   <<: *default

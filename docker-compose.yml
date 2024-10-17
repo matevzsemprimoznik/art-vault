@@ -11,6 +11,8 @@ services:
       - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - art-vault-network
 
   client:
     build:
@@ -23,20 +25,28 @@ services:
       - /app/node_modules
     depends_on:
       - api
+    networks:
+      - art-vault-network
 
   api:
     build:
       context: ./api
       dockerfile: Dockerfile
+    command: bundle exec rails s -b '0.0.0.0'
     ports:
       - '3000:3000'
     volumes:
       - ./api:/app
       - /app/vendor
     env_file:
-      - ./api/.env
+      - ./api/.env.production
     depends_on:
       - postgres
+    networks:
+      - art-vault-network
 
 volumes:
   postgres_data:
+
+networks:
+  art-vault-network:

@@ -51,11 +51,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_11_094502) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories_items", id: false, force: :cascade do |t|
-    t.bigint "item_id", null: false
-    t.bigint "category_id", null: false
-  end
-
   create_table "category_items", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.bigint "category_id", null: false
