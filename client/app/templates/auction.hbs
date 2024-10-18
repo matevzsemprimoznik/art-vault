@@ -2,7 +2,7 @@
 
 <div class="container mx-auto px-8 py-16 arts-section-wrapper">
       <h1 class="text-2xl font-bold mb-10">{{this.model.auction.name}}</h1>
-      <p class="text-gray-600 mb-10">{{this.model.auction.description}}</p>
+      <p class="text-gray-600 mb-12">{{this.model.auction.description}}</p>
       <div class="flex space-x-28 mb-10">
         <div>
           <p class="text-gray-600 text-nowrap">Current Bid</p>
@@ -26,7 +26,7 @@
         <BiddingButtons @auction={{this.model.auction}}/>
       </div>
   <div>
-    <h2 class="text-xl font-semibold mb-7 mt-24">Arts in this auction</h2>
+    <h2 class="text-xl font-semibold mb-7 mt-32">Arts in this auction</h2>
     <div>
       {{#each this.model.auction.items as |item|}}
         <div class="flex space-x-4 mb-10">
